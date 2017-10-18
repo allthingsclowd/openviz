@@ -1,3 +1,4 @@
+import { BrowserWindowReferenceService } from './services/browser-window-reference.service';
 import { CloudvisualisedService } from './services/cloudvisualised.service';
 import { NetworkService } from './services/network.service';
 import { PasswordManagementService } from './services/password-management.service';
@@ -69,7 +70,8 @@ import { CloudvisualisedComponent } from './cloudvisualised.component';
               UserMaintenanceService,
               LoadbalancerService,
               NetworkService,
-              CloudvisualisedService],
+              CloudvisualisedService,
+              BrowserWindowReferenceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
