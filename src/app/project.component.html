@@ -1,0 +1,22 @@
+
+   <ul *ngIf='currentProject' class="btn-group">   
+      
+      <!-- Split button -->
+        
+        <button type="button" class="btn-xl btn btn-danger" (click)="onLogout()">Logout</button>
+        <button type="button" class="btn-xl btn btn-info">{{currentProject.name | json | removeQuotes}}</button>
+        <button type="button" class="btn-xl btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+
+        <ul class="wrapper selection dropdown-menu dropdown-hover scrollable-menu" >
+          <div *ngFor='let project of projects | sortObjectsByName'>
+            <li  *ngIf='project.enabled'  value="project.id | json | removeQuotes"
+                    (click)="projectChange(project)">{{project.name | json | removeQuotes}}</li>
+          </div>
+        </ul>
+    
+    </ul>
+   
+

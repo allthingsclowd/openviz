@@ -1,0 +1,32 @@
+.wrapper{
+    border: 1px;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 250px;
+ }
+ .wrapper .selection{
+   float: none;
+   width:250px;
+   border:1px solid #ccc
+ }
+
+ li:hover { 
+  background-color: yellow;
+}
+
+.btn-xl {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+/* .navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+} */
