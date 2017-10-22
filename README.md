@@ -8,6 +8,8 @@ It leverages the following wonderful projects:
 ## three.js - https://threejs.org/
 ## D3-Force-Graph - https://github.com/vasturiano/3d-force-graph
 
+![openstackviz](https://user-images.githubusercontent.com/9472095/31866402-d215a358-b776-11e7-912c-40dc97408e47.png)
+
 I'll publish a more sensible (read infrastructure icons instead of spheres) 2D business grade version as soon as I get time to debug it :)
 
 ## Installation
