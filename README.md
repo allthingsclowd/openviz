@@ -1,28 +1,26 @@
-# K5PasswordRetrevial
+# OpenStack & Fujitsu K5 Visualiser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.5.
+This is a fun visualisation tool that demonstrates how your OpenStack based cloud data can be displayed in 3D.
+It leverages the following wonderful projects:
 
-## Development server
+## Angular - https://angular.io/
+## D3JS - https://d3js.org/
+## three.js - https://threejs.org/
+## D3-Force-Graph - https://github.com/vasturiano/3d-force-graph
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I'll publish a more sensible (read infrastructure icons instead of spheres) 2D business grade version as soon as I get time to debug it :)
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+ - Clone the repository from https://github.com/allthingsclowd/openviz
+ - To build run 'npm install'
+ - Test by running 'ng serve'
 
-## Build
+ - Note: This application runs all code in the frontend browser. In order to get around CORS - Cross Origin Resource Sharing - retrictions 
+ imposed by browsers it's necessary to proxy the requests to some backend services that don't provide CORS headers.
+ See my earlier blog https://allthingscloud.eu/2017/03/24/cross-origin-resource-sharing-cors-on-fujitsus-k5-platform/ for details of how to implement this.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+ Alternatively visit - https://openviz.uk-1.cf-app.net/ running on Fujitsu's Cloud Service K5
 
-## Running unit tests
+ - All development has been performed using an openstack domain admin account. This may also work with a user account but I haven't verified all the API endpoints are accessible by a member role.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
