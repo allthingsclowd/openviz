@@ -26,3 +26,5 @@ I'll publish a more sensible (read infrastructure icons instead of spheres) 2D b
 
  - All development has been performed using an openstack domain admin account. This may also work with a user account but I haven't verified all the API endpoints are accessible by a member role.
 
+ - There's a lot of additional goodies a.k.a. OpenStack Services written in Angular here too that I use in other projects...happy exploring.
+
