@@ -235,7 +235,7 @@ export class CloudvisualisedService {
         case 'port': {
            // statements;
            //newNode.availability_zone = node.availability_zone;
-           console.log(node);
+          // console.log(node);
            const subtype = (node.device_owner).split(':');
            if (node.name === '') {
              newNode.name = node.id;
@@ -260,9 +260,9 @@ export class CloudvisualisedService {
         }
         case 'network': {
           // statements;
-          console.log(node);
+         // console.log(node);
           if (node['router:external'] === true) {
-            console.log('External Network');
+           // console.log('External Network');
             newNode.status = node.status;
             for (let link of node.subnets) {
               //console.log('Network Subnets');
@@ -272,7 +272,7 @@ export class CloudvisualisedService {
             }
             newNode.name = type + ': ' + newNode.name;
           } else {
-            console.log('Unwanted Network');
+           // console.log('Unwanted Network');
             continue;
 
           }
@@ -331,8 +331,8 @@ export class CloudvisualisedService {
     //this.generateEdges(this.localNodeList);
     this.generateNamedEdges(this.localNodeList);
     this.k5Nodes = new VisualisationData(this.localNodeList, this.localEdgeList);
-    console.log('Final OutPut for D3JS');
-    console.log(this.k5Nodes);
+   // console.log('Final OutPut for D3JS');
+   // console.log(this.k5Nodes);
     //console.log(this.k5Nodes);
     this.changeVisualData(this.k5Nodes);
 

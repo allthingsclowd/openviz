@@ -24,13 +24,13 @@ export class CloudvisualisedComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   ngAfterViewInit() {
-    console.log('native element');
-    console.log(this.chartContainer.nativeElement);
+   // console.log('native element');
+   // console.log(this.chartContainer.nativeElement);
 
     this.cloudvisualisedService.currentVisualData.subscribe(newData => {
       this.nodeDetails = newData;
-      console.log(this.nodeDetails.nodes);
-      console.log(this.nodeDetails.links);
+     // console.log(this.nodeDetails.nodes);
+     // console.log(this.nodeDetails.links);
       this.projectGraph = ForceGraph3D()(this.chartContainer.nativeElement)
         .graphData(this.nodeDetails)
         .nameField('name')

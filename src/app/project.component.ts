@@ -87,6 +87,6 @@ export class ProjectComponent implements OnInit {
 }
 // .subscribe(
 //   res => {},
-//   err => console.log(err),
+//   err =>// console.log(err),
 //   () => {//console.log('End of new Project Selection');
 //           this.cloudvisualisedService.getNodes(); });
