@@ -35,8 +35,8 @@ export class CloudvisualisedComponent implements OnInit, OnChanges, AfterViewIni
         .graphData(this.nodeDetails)
         .nameField('name')
         .autoColorBy('type')
-        .height(600)
-        .width(900);
+        .nodeRelSize(5)
+        .linkColorField('white');
     });
 
   }
