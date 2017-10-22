@@ -23,6 +23,25 @@ class VisualLink implements IVisualLink {
 
 }
 
+interface IVisualNameLink {
+  source: string;
+  target: string;
+  weight: number;
+}
+
+class VisualNameLink implements IVisualNameLink {
+  source: string;
+  target: string;
+  weight: number;
+
+  constructor(source: string, target: string, weight?: number) {
+      this.source = source;
+      this.target = target;
+      this.weight = weight || 1;
+  }
+
+}
+
 
 interface IVisualNode {
   type: string;
@@ -84,11 +103,11 @@ class VisualNode implements IVisualNode {
   }
 }
 
-class VisualisationData {
+export class VisualisationData {
   nodes: Array<VisualNode>;
-  links: Array<VisualLink>;
+  links: Array<any>;
 
-  constructor(nodes: Array<VisualNode>, links: Array<VisualLink>) {
+  constructor(nodes: Array<VisualNode>, links: any) {
     this.nodes = nodes;
     this.links = links;
 
@@ -106,7 +125,7 @@ export class CloudvisualisedService {
   loadbalancers: any;
 
   localNodeList = new Array<VisualNode>();
-  localEdgeList = new Array<VisualLink>();
+  localEdgeList = new Array<any>();
 
   private nodeList = new BehaviorSubject<VisualNode[]>([]);
   currentNodeList = this.nodeList.asObservable();
@@ -149,6 +168,32 @@ export class CloudvisualisedService {
     
   }
 
+  generateNamedEdges(nodelist: Array<VisualNode>) {
+    this.localEdgeList = new Array<VisualNameLink>();
+    for (let node of nodelist) {
+      //console.log('Processing Node ', node);
+      for (let link of node.links) {
+        const linkIndex = this.locateIndexinNodeList(link, this.localNodeList);
+        if (linkIndex) {
+          //console.log('target');
+          //console.log(linkIndex);
+          //console.log('source');
+          //console.log(node);
+          const newLink = new VisualNameLink(node.id, link);
+          this.localEdgeList.push(newLink);
+        }
+        // let source: number = +node;
+        // let target: number = nodelist.indexOf(link);
+        // this.localEdgeList.push(source,target);
+        
+        
+      }
+    }
+
+    //console.log('Finished Link List');
+    //console.log(this.localEdgeList);
+    
+  }
 
   generateEdges(nodelist: Array<VisualNode>) {
     this.localEdgeList = new Array<VisualLink>();
@@ -283,7 +328,8 @@ export class CloudvisualisedService {
     //console.log(this.localNodeList);
     this.updateNodeList(this.localNodeList);
     //console.log(this.currentNodeList);
-    this.generateEdges(this.localNodeList);
+    //this.generateEdges(this.localNodeList);
+    this.generateNamedEdges(this.localNodeList);
     this.k5Nodes = new VisualisationData(this.localNodeList, this.localEdgeList);
     console.log('Final OutPut for D3JS');
     console.log(this.k5Nodes);
